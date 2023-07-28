@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reproducción</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Reproduciendo: {{ FM['nombre'] }}</h1>
+    <img src="{{ url_for('static', filename='radio_fondo.png') }}" alt="Icono de Radio">
+    <div class="reproductor">
+        <audio controls>
+            <source src="{{ FM.url }}" type="audio/mpeg">
+            Tu navegador no admite la reproducción de audio.
+        </audio>
+        <br><br>
+    </div>
+    <div class="boton"><a href="/FM"><button class="volver">Volver</button></a></div>
+</body>
+</html>

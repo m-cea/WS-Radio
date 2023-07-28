@@ -1,0 +1,77 @@
+html{
+    background-color:  #cf6766;
+}
+
+h1{
+    font-family: 'Ink Free', 'Lucida Handwriting', 'Maiandra GD', sans-serif;
+    text-align: center;
+}
+
+button{
+    position: relative;
+    display: block;
+    margin: auto;
+    background-color:  #30415d;
+    border-radius: 10%;
+    width: 100%;
+    padding: 5px;
+    color: #8eaebd;
+    font-family: 'Ink Free', 'Lucida Handwriting', 'Maiandra GD', sans-serif;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+a{
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 30%;
+    margin: auto;
+  }
+
+audio{
+    background-color: #30415d;
+    color: #8eaebd;
+    border-radius: 10%;
+    width: 100%;
+    padding: 10px;
+}
+
+.volver{
+    position: relative;
+    color:  #30415d;
+    background-color: #8eaebd;
+    margin: auto;
+    width: 100%;
+}
+
+.radio{
+    background-image: url("radio_fondo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+}
+
+.musica{
+    background-image: url("musica_fondo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+}
+
+.reproductor{
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 80%;
+}
+
+.boton{
+    display: block;
+    margin: auto;
+    padding: 10px;
+    align-items: center;
+    width: 60%;
+}

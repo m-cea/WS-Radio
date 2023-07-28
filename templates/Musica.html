@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Musica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="musica">
+    <h1>Musica Libre ♪</h1>
+    {% for Musica in Musica %}
+    <div class="boton">
+        <a href="{{ url_for('reproducirMusica', Musica_id=Musica['nombre']) }}"><button>{{ Musica['nombre'] }}</button></a>
+    </div>
+    {% endfor %}
+    <br><br>
+    <div class="boton"><a href="/"><button class="volver">Volver</button></a></div>
+</body>
+</html>
