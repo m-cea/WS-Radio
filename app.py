@@ -13,7 +13,7 @@ def AM():
     AM = obtener_AM()
     return render_template('AM.html', AM=AM)
 
-@app.route('/reproducirAM/<AM_id>')
+@app.route('/AM/reproducirAM/<AM_id>')
 def reproducirAM(AM_id):
     AM = collectionAM.find_one({'nombre': AM_id})  # Obtener el registro de la emisora seleccionada
     if AM:
@@ -21,14 +21,14 @@ def reproducirAM(AM_id):
         return render_template('reproducirAM.html', AM=AM)
     else:
         # Emisora no encontrada, redireccionar a la página principal
-        return redirect(url_for('index'))
+        return render_template('error.html')
 
 @app.route('/FM', methods=['GET'])
 def FM():
     FM = obtener_FM()
     return render_template('FM.html', FM=FM)
 
-@app.route('/reproducirFM/<FM_id>')
+@app.route('/FM/reproducirFM/<FM_id>')
 def reproducirFM(FM_id):
     FM = collectionFM.find_one({'nombre': FM_id})  # Obtener el registro de la emisora seleccionada
     if FM:
@@ -36,14 +36,14 @@ def reproducirFM(FM_id):
         return render_template('reproducirFM.html', FM=FM)
     else:
         # Emisora no encontrada, redireccionar a la página principal
-        return redirect(url_for('index'))
+        return render_template('error.html')
 
 @app.route('/Mundial', methods=['GET'])
 def Mundial():
     Mundial = obtener_Mundo()
     return render_template('Mundial.html', Mundial=Mundial)
 
-@app.route('/reproducirMundial/<Mundial_id>')
+@app.route('/Mundial/reproducirMundial/<Mundial_id>')
 def reproducirMundial(Mundial_id):
     Mundial = collectionMundial.find_one({'nombre': Mundial_id})  # Obtener el registro de la emisora seleccionada
     if Mundial:
@@ -51,14 +51,14 @@ def reproducirMundial(Mundial_id):
         return render_template('reproducirMundial.html', Mundial=Mundial)
     else:
         # Emisora no encontrada, redireccionar a la página principal
-        return redirect(url_for('index'))
+        return render_template('error.html')
 
 @app.route('/Musica', methods=['GET'])
 def Musica():
     Musica = obtener_Musica()
     return render_template('Musica.html', Musica=Musica)
 
-@app.route('/reproducirMusica/<Musica_id>')
+@app.route('/Musica/reproducirMusica/<Musica_id>')
 def reproducirMusica(Musica_id):
     Musica = collectionMusica.find_one({'nombre': Musica_id})  # Obtener el registro de la emisora seleccionada
     if Musica:
@@ -66,7 +66,11 @@ def reproducirMusica(Musica_id):
         return render_template('reproducirMusica.html', Musica=Musica)
     else:
         # Emisora no encontrada, redireccionar a la página principal
-        return redirect(url_for('index'))
+        return render_template('error.html')
+
+@app.route('/error')
+def error():
+    return render_template('error.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

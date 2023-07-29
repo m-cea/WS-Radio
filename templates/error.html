@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Se produjo un error</h1>
+        <img src="{{ url_for('static', filename='error.png') }}" alt="Icono de error">    
+        <p>No se pudo cargar la página. Revisá la búsqueda o la conexión de internet.</p>
+        <br><br>
+    <div class="boton"><a href="/"><button class="volver">Volver</button></a></div>
+</body>
+</html>
