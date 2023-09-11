@@ -6,6 +6,13 @@
 </head>
 <body class="radio">
     <h1>Lista de Emisoras Mundiales</h1>
+
+    <form method="post" action="/resultadoMundo">
+        {{ form.as_p }}
+        <input class="input-busqueda" type="text" name="termino_busqueda" placeholder="Buscar emisoras...">
+        <button class="boton" type="submit">Buscar</button>
+    </form>
+
     {% for Mundial in Mundial %}
     <div class="boton">
         <a href="{{ url_for('reproducirMundial', Mundial_id=Mundial['nombre']) }}"><button>{{ Mundial['nombre'] }}</button></a>

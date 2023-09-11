@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from pymongo import MongoClient
 from db import *
 
@@ -7,11 +7,12 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
-
+ 
 @app.route('/AM', methods=['GET'])
 def AM():
     AM = obtener_AM()
-    return render_template('AM.html', AM=AM)
+    form = buscar_registrosAM("")
+    return render_template('AM.html', AM=AM, form=form)
 
 @app.route('/AM/reproducirAM/<AM_id>')
 def reproducirAM(AM_id):
@@ -26,7 +27,8 @@ def reproducirAM(AM_id):
 @app.route('/FM', methods=['GET'])
 def FM():
     FM = obtener_FM()
-    return render_template('FM.html', FM=FM)
+    form = buscar_registrosFM("")
+    return render_template('FM.html', FM=FM, form=form)
 
 @app.route('/FM/reproducirFM/<FM_id>')
 def reproducirFM(FM_id):
@@ -41,7 +43,8 @@ def reproducirFM(FM_id):
 @app.route('/Mundial', methods=['GET'])
 def Mundial():
     Mundial = obtener_Mundo()
-    return render_template('Mundial.html', Mundial=Mundial)
+    form = buscar_registrosMundo("")
+    return render_template('Mundial.html', Mundial=Mundial, form=form)
 
 @app.route('/Mundial/reproducirMundial/<Mundial_id>')
 def reproducirMundial(Mundial_id):
@@ -67,6 +70,27 @@ def reproducirMusica(Musica_id):
     else:
         # Emisora no encontrada, redireccionar a la página principal
         return render_template('error.html')
+    
+@app.route('/resultadoAM', methods=['POST'])
+def resultadoAM():
+    termino_busqueda = request.form['termino_busqueda']
+    # Utiliza la función buscar_registros desde db.py
+    resultados = buscar_registrosAM(termino_busqueda)
+    return render_template('resultadoAM.html', resultados=resultados)
+
+@app.route('/resultadoFM', methods=['POST'])
+def resultadoFM():
+    termino_busqueda = request.form['termino_busqueda']
+    # Utiliza la función buscar_registros desde db.py
+    resultados = buscar_registrosFM(termino_busqueda)
+    return render_template('resultadoAM.html', resultados=resultados)
+
+@app.route('/resultadoMundo', methods=['POST'])
+def resultadoMundo():
+    termino_busqueda = request.form['termino_busqueda']
+    # Utiliza la función buscar_registros desde db.py
+    resultados = buscar_registrosMundo(termino_busqueda)
+    return render_template('resultadoAM.html', resultados=resultados)
 
 @app.route('/error')
 def error():

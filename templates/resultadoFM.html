@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados Búsqueda FM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="radio">
+    
+    <h1>Lista de Emisoras FM</h1><ul>
+    {% for resultado in resultados %}
+    <div class="boton">
+        <a href="{{ url_for('reproducirFM', FM_id=resultado['nombre']) }}"><button>{{ resultado['nombre'] }}</button></a>
+    </div>
+        <!-- Aquí muestra los detalles del resultado como desees -->
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endfor %}
+<div class="boton"><a href="/FM"><button class="volver">Volver</button></a></div>

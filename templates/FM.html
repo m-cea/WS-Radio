@@ -6,6 +6,15 @@
 </head>
 <body class="radio">
     <h1>Lista de Emisoras FM</h1>
+
+    <div class="formulario-busqueda">
+        <form method="post" action="/resultadoFM">
+            {{ form.as_p }}
+            <input class="input-busqueda" type="text" name="termino_busqueda" placeholder="Buscar emisoras...">
+            <button class="boton" type="submit">Buscar</button>
+        </form>
+    </div>
+        <br><br>
     {% for FM in FM %}
         <div class="boton">
             <a href="{{ url_for('reproducirFM', FM_id=FM['nombre']) }}"><button>{{ FM['nombre'] }}</button></a>

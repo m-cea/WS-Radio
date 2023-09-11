@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados Búsqueda AM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="radio">
+    
+        <h1>Lista de Emisoras Mundiales</h1>
+    {% for resultado in resultados %}
+    <div class="boton">
+        <a href="{{ url_for('reproducirMundial', Mundial_id=resultado['nombre']) }}"><button>{{ resultado['nombre'] }}</button></a>
+    </div>
+        <!-- Aquí muestra los detalles del resultado como desees -->
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endfor %}
+<div class="boton"><a href="/Mundial"><button class="volver">Volver</button></a></div>

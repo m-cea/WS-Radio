@@ -21,6 +21,23 @@ button{
     font-size: larger;
 }
 
+/* Estilos para el contenedor del formulario */
+.formulario-busqueda {
+    text-align: center; /* Alinea los elementos en el centro horizontalmente */
+}
+
+/* Estilos para el campo de entrada de texto */
+.input-busqueda {
+    display: inline-block; /* Muestra el campo de entrada en línea */
+    padding: 10px; /* Ajusta el espaciado interior según sea necesario */
+}
+
+/* Estilos para el botón de búsqueda */
+.boton-busqueda {
+    display: inline-block; /* Muestra el botón en línea */
+    padding: 10px 15px; /* Ajusta el espaciado interior según sea necesario */
+}
+
 a{
     text-decoration: none;
 }
